@@ -1,17 +1,17 @@
 # Payment Service
 
-Приложение для обработки поступающих HTTP POST-запросов в сервлетах
+Приложение для обработки в сервлете поступающих HTTP POST-запросов
 
 ## Инструкция по запуску
 ### Настройки Mongo
-* Адрес: по дефолту в классе utils.DataSourceFactory указан URI "mongodb://localhost:27017/?appName=PaymentService"
+* Адрес: по дефолту в классе utils.DataSourceFactory указан URI ```mongodb://localhost:27017/?appName=PaymentService```
 * Название таблицы: clients
 * Название коллекции: payments
 
 ### Запуск приложения
-1. Запустить Mongo-сервер и создать таблицу "clients" с коллекцией "payments", используя конфигурацию выше
-2. Открыть папку проекта в терминале и выполнить команду ./gradlew jettyRun
-3. Используя REST клиент, отправить на эндпоинт http://localhost:8080/PaymentService/savePayment следующий POST-реквест:
+1. Запустить Mongo-сервер и создать таблицу ```clients``` с коллекцией ```payments```, используя конфигурацию выше
+2. Открыть папку проекта в терминале и выполнить команду ```./gradlew jettyRun```
+3. Используя REST клиент, отправить на эндпоинт ```http://localhost:8080/PaymentService/savePayment```, к примеру, следующий POST-реквест:
 
 ```json
 {
