@@ -21,7 +21,7 @@ An application for processing incoming HTTP POST requests
 }
 ```
 
-You should receive ```200ОК``` in the response, the body of this response should contain ```0```, if the payment with this ```id``` doesn't exist in the tableесли, or ```1``` if it does:
+You should receive ```200ОК``` in the response, the body of this response should contain ```0```, if the payment with this ```id``` doesn't exist in the table, or ```1``` if it does:
 
 ```json
 {
