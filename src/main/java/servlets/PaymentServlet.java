@@ -7,8 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Payment;
-import dao.DaoPayment;
+import entity.Payment;
+import dao.impl.PaymentDaoImpl;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,11 +30,11 @@ public class PaymentServlet extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
 
         JsonObject jsonObject = new JsonObject();
-        DaoPayment daoPayment = new DaoPayment();
-        boolean isPresent = Objects.equals(daoPayment.find(payment.getId()), null);
+        PaymentDaoImpl paymentDaoImpl = new PaymentDaoImpl();
+        boolean isPresent = Objects.equals(paymentDaoImpl.find(payment.getId()), null);
         if (isPresent) {
             jsonObject.addProperty("status", 0);
-            daoPayment.save(payment);
+            paymentDaoImpl.save(payment);
         } else {
             jsonObject.addProperty("status", 1);
         }

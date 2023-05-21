@@ -7,9 +7,9 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 public class DataSourceFactory {
-    private MongoDatabase database;
-    private MongoCollection<Document> collection;
-    private MongoClient client;
+    private final MongoDatabase database;
+    private final MongoCollection<Document> collection;
+    private final MongoClient client;
     private final String host = "localhost";
     private final String port = "27017";
 

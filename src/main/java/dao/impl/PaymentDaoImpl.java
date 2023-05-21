@@ -1,16 +1,17 @@
-package dao;
+package dao.impl;
 
 import com.mongodb.MongoCommandException;
 import com.mongodb.client.ClientSession;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import model.Payment;
+import dao.PaymentDao;
+import entity.Payment;
 import org.bson.Document;
 import utils.DataSourceFactory;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class DaoPayment implements PaymentDao {
+public class PaymentDaoImpl implements PaymentDao {
     /**
      * @param id the payment id
      * @return object if the payment with the given id is in the database. Otherwise returns null
@@ -18,8 +19,7 @@ public class DaoPayment implements PaymentDao {
     @Override
     public Object find(String id) {
         DataSourceFactory dataSourceFactory = new DataSourceFactory();
-        Object object = dataSourceFactory.getCollection().find(eq("id", id)).first();
-        return object;
+        return dataSourceFactory.getCollection().find(eq("id", id)).first();
     }
 
     /**
@@ -48,12 +48,12 @@ public class DaoPayment implements PaymentDao {
     }
 
     @Override
-    public boolean update(Payment o) {
+    public boolean update(Payment payment) {
         return false;
     }
 
     @Override
-    public boolean delete(Payment o) {
+    public boolean delete(Payment payment) {
         return false;
     }
 
